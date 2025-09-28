@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Best Games of 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #001235);
+            color: #f8f9fa;
+            line-height: 1.6;
+            padding-bottom: 40px;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 30, 0.7);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            color: #4ecca3;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            color: #eeeeee;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: rgba(79, 204, 163, 0.2);
+            color: #4ecca3;
+            border: 1px solid #4ecca3;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #4ecca3;
+            color: #1a1a2e;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .game-card {
+            background: linear-gradient(145deg, #16213e 0%, #1a1a2e 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .game-image {
+            height: 200px;
+            background: linear-gradient(to right, #3494E6, #EC6EAD);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .game-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .game-number {
+            display: inline-block;
+            background: #4ecca3;
+            color: #1a1a2e;
+            font-weight: bold;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.2rem;
+        }
+        
+        .game-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: #4ecca3;
+        }
+        
+        .game-type {
+            display: inline-block;
+            background: #0f3460;
+            color: #eeeeee;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .game-description {
+            margin-bottom: 20px;
+            flex-grow: 1;
+            color: #d0d0d0;
+        }
+        
+        .game-features {
+            margin-bottom: 20px;
+        }
+        
+        .game-features ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        
+        .game-features li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+            color: #c0c0c0;
+        }
+        
+        .game-features li:before {
+            content: "★";
+            color: #4ecca3;
+            position: absolute;
+            left: 0;
+        }
+        
+        .game-link {
+            text-align: center;
+            background: #e94560;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .game-link:hover {
+            background: #ff577f;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            background: rgba(22, 33, 62, 0.8);
+            border-radius: 15px;
+            font-size: 1rem;
+            color: #eeeeee;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(79, 204, 163, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+            text-align: center;
+            border: 1px solid rgba(79, 204, 163, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4ecca3;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #eeeeee;
+        }
+        
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Top 10 Best Games of 2025</h1>
+            <p>Discover the most exciting games of the year, from action adventures to immersive simulations. These titles are taking the world by storm with unparalleled gaming experiences!</p>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active">All Games</button>
+                <button class="filter-btn">Action</button>
+                <button class="filter-btn">Adventure</button>
+                <button class="filter-btn">Simulation</button>
+                <button class="filter-btn">RPG</button>
+            </div>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Amazing Games</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Game Genres</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">96%</div>
+                <div class="stat-label">Positive Reviews</div>
+            </div>
+        </div>
+        
+        <main>
+            <div class="games-grid">
+                <!-- Game 1 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">1</span>
+                            <span class="game-type">Action Adventure</span>
+                        </div>
+                        <h3>Demon Hunter</h3>
+                        <p class="game-description">A 2D platform action-adventure game combining open-world exploration with a unique art style and clever puzzle design, telling an epic fantasy story.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Open world exploration</li>
+                                <li>Intricate puzzle design</li>
+                                <li>Dark fantasy storyline</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Game 2 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">2</span>
+                            <span class="game-type">Action Adventure</span>
+                        </div>
+                        <h3>Death Stranding 2</h3>
+                        <p class="game-description">The latest work from Kojima Productions, continuing the worldview of the previous game. In a post-apocalyptic environment, players continue to play the protagonist.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Immersive world</li>
+                                <li>Resource transportation & combat</li>
+                                <li>Complex terrain exploration</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Game 3 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">3</span>
+                            <span class="game-type">Simulation Management</span>
+                        </div>
+                        <h3>Parisian Bistro Simulator</h3>
+                        <p class="game-description">Run a French restaurant in romantic Paris, create menus, and provide customers with the ultimate French dining experience.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Restaurant management</li>
+                                <li>Menu customization</li>
+                                <li>Multiplayer cooperation mode</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Game 4 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-jedi"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">4</span>
+                            <span class="game-type">Adventure Puzzle</span>
+                        </div>
+                        <h3>Light & Shadow: Expedition 33</h3>
+                        <p class="game-description">Ranked first on Metacritic's 2025 user ratings with a high score of 9.7. Praised for its dialogue-free narrative, dual-ending design, and emotional impact.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Dialogue-free narrative</li>
+                                <li>Dual-ending design</li>
+                                <li>Strong emotional impact</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Game 5 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">5</span>
+                            <span class="game-type">Roguelike</span>
+                        </div>
+                        <h3>Gunboat Diplomacy</h3>
+                        <p class="game-description">Become a destructive mech in the post-apocalyptic wasteland, experience thrilling annihilation battles! Recycle weapon modules and create the most powerful weapons.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Mech combat</li>
+                                <li>Weapon crafting system</li>
+                                <li>Roguelike elements</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Game 6 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-clone"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">6</span>
+                            <span class="game-type">Sci-Fi Survival</span>
+                        </div>
+                        <h3>Multiple Lives</h3>
+                        <p class="game-description">A sci-fi survival adventure game created by the developers of "This War of Mine" and "Frostpunk". Players create multiple clones through a mysterious substance.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Multi-clone system</li>
+                                <li>Survival management</li>
+                                <li>Sci-fi narrative</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Game 7 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-banana"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">7</span>
+                            <span class="game-type">Platform Adventure</span>
+                        </div>
+                        <h3>Donkey Kong: Banana Mania</h3>
+                        <p class="game-description">Exclusive to Switch 2 platform, ranked second in the annual player ratings with a high score of 9.1. Retro-style gameplay combined with innovative level design.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Retro gameplay</li>
+                                <li>Innovative level design</li>
+                                <li>Nintendo exclusive</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Game 8 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-oil-well"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">8</span>
+                            <span class="game-type">Simulation Management</span>
+                        </div>
+                        <h3>Drill Baby Drill</h3>
+                        <p class="game-description">A single-player/multiplayer game themed around oil drilling. Players can act as factory directors or partners to jointly operate the oil industry.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Oil industry simulation</li>
+                                <li>Multiplayer cooperation</li>
+                                <li>Economic management</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Game 9 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-ghost"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">9</span>
+                            <span class="game-type">Simulation Horror</span>
+                        </div>
+                        <h3>Rise from the Coffin</h3>
+                        <p class="game-description">Combines simulation and horror elements in an exciting way. Players will manage a haunted funeral service and work as a priest in a cursed forest.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Horror simulation</li>
+                                <li>Funeral management</li>
+                                <li>Exorcism elements</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Game 10 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-header">
+                            <span class="game-number">10</span>
+                            <span class="game-type">Strategy Adventure</span>
+                        </div>
+                        <h3>Hundred Days War -Final Defense Academy-</h3>
+                        <p class="game-description">Created by Kazutaka Kodaka (Danganronpa) and Kotaro Uchikoshi (Zero Escape). Combines ADV narrative with SRPG strategy elements, featuring multiple endings.</p>
+                        <div class="game-features">
+                            <ul>
+                                <li>Multiple ending design</li>
+                                <li>Strategic combat</li>
+                                <li>Visual novel narrative</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="game-link"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2025 Best Games Collection | This website is for demonstration purposes only | All game copyrights belong to their respective owners</p>
+            <p>Data sources: Gamersky, ZOL Games, 3DM Games, etc.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple filter functionality for demonstration
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // In a real implementation, you would filter the games here
+                    // For this demo, we'll just show a message
+                    alert('Filtering by: ' + this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
